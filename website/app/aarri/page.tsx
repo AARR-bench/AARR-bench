@@ -29,24 +29,24 @@ export default function AARRIPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative overflow-hidden border-b border-white/[0.06]">
-        <div className="glow-radial pointer-events-none absolute inset-0" />
+      <section className="relative overflow-hidden border-b border-ink-100">
+        <div className="grid-bg bg-grid-light pointer-events-none absolute inset-0 opacity-70" />
         <div className="container-px relative py-16 sm:py-20">
           <div className="flex flex-wrap items-center gap-3">
-            <span className="font-mono text-xs font-semibold text-brand-400">
-              STAGE {bench.stage}
+            <span className="text-xs font-bold uppercase tracking-wider text-ink-400">
+              Stage {bench.stage}
             </span>
-            <span className="pill !py-0.5 border-accent-emerald/30 bg-accent-emerald/10 text-accent-emerald">
-              <span className="h-1.5 w-1.5 rounded-full bg-accent-emerald" />
+            <span className="pill !py-0.5 border-ink bg-ink text-white">
+              <span className="h-1.5 w-1.5 rounded-full bg-term-green" />
               Live
             </span>
           </div>
 
-          <h1 className="mt-5 font-mono text-5xl font-extrabold tracking-tight text-white sm:text-6xl">
+          <h1 className="mt-5 text-5xl font-bold tracking-tight text-ink sm:text-6xl">
             AARRI
           </h1>
-          <p className="mt-3 text-xl font-medium text-slate-300">{bench.name}</p>
-          <p className="mt-5 max-w-2xl text-lg leading-relaxed text-slate-400">
+          <p className="mt-3 text-xl font-bold text-ink-600">{bench.name}</p>
+          <p className="mt-5 max-w-2xl text-lg leading-relaxed text-ink-600">
             {bench.description}
           </p>
 
@@ -70,7 +70,7 @@ export default function AARRIPage() {
           </div>
 
           <div className="mt-12 grid max-w-2xl grid-cols-3 gap-8">
-            <Stat value={String(taskCount)} label="Tasks" accent />
+            <Stat value={String(taskCount)} label="Tasks" />
             <Stat value={String(categories.length)} label="Categories" />
             <Stat value={String(difficulties.length)} label="Difficulty levels" />
           </div>
@@ -80,46 +80,41 @@ export default function AARRIPage() {
       {/* Focus areas */}
       <section className="container-px py-16">
         <p className="section-label">What it measures</p>
-        <h2 className="mt-3 text-3xl font-bold text-white">
+        <h2 className="mt-3 text-3xl font-bold text-ink">
           Researcher cognitive gaps
         </h2>
-        <p className="mt-3 max-w-2xl text-slate-400">
+        <p className="mt-3 max-w-2xl text-ink-600">
           AARRI targets the judgment and awareness that distinguish a careful
           research intern from a code-executing agent.
         </p>
-        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-8 grid gap-px overflow-hidden border border-ink-100 bg-ink-100 sm:grid-cols-2 lg:grid-cols-4">
           {bench.focusAreas.map((area) => (
-            <div key={area} className="card p-6">
-              <div className="mb-3 h-1 w-8 rounded-full bg-gradient-to-r from-brand-500 to-accent-cyan" />
-              <p className="font-medium text-white">{area}</p>
+            <div key={area} className="bg-white p-6">
+              <div className="mb-3 h-1 w-8 bg-ink" />
+              <p className="font-bold text-ink">{area}</p>
             </div>
           ))}
         </div>
       </section>
 
-      {/* Categories breakdown */}
+      {/* Breakdowns */}
       <section className="container-px py-12">
         <div className="grid gap-6 lg:grid-cols-2">
           <div className="card p-7">
-            <h3 className="text-lg font-semibold text-white">Tasks by category</h3>
+            <h3 className="text-lg font-bold text-ink">Tasks by category</h3>
             <div className="mt-5 space-y-4">
               {categories.map((cat) => {
                 const pct = Math.round((cat.count / taskCount) * 100);
                 return (
                   <div key={cat.name}>
                     <div className="mb-1.5 flex items-center justify-between text-sm">
-                      <span className="flex items-center gap-2">
-                        <CategoryBadge category={cat.name} />
-                      </span>
-                      <span className="font-mono text-slate-400">
+                      <CategoryBadge category={cat.name} />
+                      <span className="tabular-nums text-ink-500">
                         {cat.count}
                       </span>
                     </div>
-                    <div className="h-2 overflow-hidden rounded-full bg-white/[0.05]">
-                      <div
-                        className="h-full rounded-full bg-gradient-to-r from-brand-500 to-accent-cyan"
-                        style={{ width: `${pct}%` }}
-                      />
+                    <div className="h-2 overflow-hidden border border-ink-100 bg-paper-50">
+                      <div className="h-full bg-ink" style={{ width: `${pct}%` }} />
                     </div>
                   </div>
                 );
@@ -128,29 +123,18 @@ export default function AARRIPage() {
           </div>
 
           <div className="card p-7">
-            <h3 className="text-lg font-semibold text-white">
-              Tasks by difficulty
-            </h3>
+            <h3 className="text-lg font-bold text-ink">Tasks by difficulty</h3>
             <div className="mt-5 space-y-4">
               {difficulties.map((d) => {
                 const pct = Math.round((d.count / taskCount) * 100);
-                const color =
-                  d.name === "easy"
-                    ? "from-accent-emerald to-accent-emerald"
-                    : d.name === "medium"
-                      ? "from-accent-amber to-accent-amber"
-                      : "from-accent-rose to-accent-rose";
                 return (
                   <div key={d.name}>
                     <div className="mb-1.5 flex items-center justify-between text-sm">
-                      <span className="capitalize text-slate-300">{d.name}</span>
-                      <span className="font-mono text-slate-400">{d.count}</span>
+                      <span className="capitalize text-ink-700">{d.name}</span>
+                      <span className="tabular-nums text-ink-500">{d.count}</span>
                     </div>
-                    <div className="h-2 overflow-hidden rounded-full bg-white/[0.05]">
-                      <div
-                        className={`h-full rounded-full bg-gradient-to-r ${color}`}
-                        style={{ width: `${pct}%` }}
-                      />
+                    <div className="h-2 overflow-hidden border border-ink-100 bg-paper-50">
+                      <div className="h-full bg-ink" style={{ width: `${pct}%` }} />
                     </div>
                   </div>
                 );
@@ -165,7 +149,7 @@ export default function AARRIPage() {
         <div className="mb-8 flex items-end justify-between">
           <div>
             <p className="section-label">Sample tasks</p>
-            <h2 className="mt-3 text-3xl font-bold text-white">
+            <h2 className="mt-3 text-3xl font-bold text-ink">
               A look inside the benchmark
             </h2>
           </div>
@@ -173,20 +157,18 @@ export default function AARRIPage() {
             All tasks →
           </Link>
         </div>
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-px overflow-hidden border border-ink-100 bg-ink-100 sm:grid-cols-2 lg:grid-cols-3">
           {featured.map((task) => (
             <Link
               key={task.slug}
               href={`/tasks/${task.slug}/`}
-              className="card card-hover flex flex-col p-6"
+              className="group flex flex-col bg-white p-6 transition-colors hover:bg-paper-50"
             >
-              <div className="flex items-center gap-2">
-                <CategoryBadge category={task.category} />
-              </div>
-              <h3 className="mt-3 font-mono text-sm font-semibold text-white">
+              <CategoryBadge category={task.category} />
+              <h3 className="mt-3 text-sm font-bold text-ink group-hover:underline">
                 {task.slug}
               </h3>
-              <p className="mt-2 line-clamp-3 text-sm text-slate-500">
+              <p className="mt-2 line-clamp-3 text-sm text-ink-500">
                 {task.summary}
               </p>
             </Link>
@@ -198,8 +180,8 @@ export default function AARRIPage() {
       <section className="container-px py-12">
         <div className="mb-8">
           <p className="section-label">Results</p>
-          <h2 className="mt-3 text-3xl font-bold text-white">Leaderboard</h2>
-          <p className="mt-3 max-w-xl text-slate-400">{leaderboard.note}</p>
+          <h2 className="mt-3 text-3xl font-bold text-ink">Leaderboard</h2>
+          <p className="mt-3 max-w-xl text-ink-600">{leaderboard.note}</p>
         </div>
         <LeaderboardTable data={leaderboard} orgs={leaderboard.orgs} />
       </section>

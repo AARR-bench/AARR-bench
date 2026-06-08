@@ -1,22 +1,17 @@
 export function Stat({
   value,
   label,
-  accent,
 }: {
   value: string;
   label: string;
   accent?: boolean;
 }) {
   return (
-    <div className="text-center sm:text-left">
-      <div
-        className={`font-mono text-3xl font-bold sm:text-4xl ${
-          accent ? "text-gradient" : "text-white"
-        }`}
-      >
+    <div>
+      <div className="text-3xl font-bold tracking-tight text-ink sm:text-4xl">
         {value}
       </div>
-      <div className="mt-1 text-sm text-slate-500">{label}</div>
+      <div className="mt-1 text-sm text-ink-500">{label}</div>
     </div>
   );
 }

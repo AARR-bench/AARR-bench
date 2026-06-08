@@ -20,20 +20,10 @@ function rankMap(rows: LeaderboardRow[], key: SortKey) {
 }
 
 function cellClass(value: number, best: number, second: number) {
-  if (value === best) return "font-bold text-white";
-  if (value === second) return "font-semibold text-brand-300 underline decoration-brand-500/50 underline-offset-4";
-  return "text-slate-400";
+  if (value === best) return "font-bold text-ink";
+  if (value === second) return "font-bold text-ink-700 underline decoration-ink-300 underline-offset-4";
+  return "text-ink-500";
 }
-
-const orgDot: Record<string, string> = {
-  OpenAI: "bg-emerald-400",
-  Anthropic: "bg-orange-400",
-  "Moonshot AI": "bg-sky-400",
-  Alibaba: "bg-violet-400",
-  MiniMax: "bg-rose-400",
-  DeepSeek: "bg-blue-400",
-  Google: "bg-amber-400",
-};
 
 export function LeaderboardTable({
   data,
@@ -62,25 +52,29 @@ export function LeaderboardTable({
       <div className="overflow-x-auto">
         <table className="w-full border-collapse text-sm">
           <thead>
-            <tr className="border-b border-white/[0.08] text-left">
-              <th className="px-4 py-3.5 font-semibold text-slate-400">#</th>
-              <th className="px-4 py-3.5 font-semibold text-slate-400">
-                Agent Harness
+            <tr className="border-b border-ink-200 bg-paper-50 text-left">
+              <th className="px-4 py-3 text-xs font-bold uppercase tracking-wider text-ink-400">
+                #
               </th>
-              <th className="px-4 py-3.5 font-semibold text-slate-400">Model</th>
+              <th className="px-4 py-3 text-xs font-bold uppercase tracking-wider text-ink-400">
+                Harness
+              </th>
+              <th className="px-4 py-3 text-xs font-bold uppercase tracking-wider text-ink-400">
+                Model
+              </th>
               {numericCols.map((col) => (
                 <th
                   key={col.key}
-                  className="px-4 py-3.5 text-right font-semibold"
+                  className="px-4 py-3 text-right text-xs font-bold uppercase tracking-wider"
                 >
                   <button
                     onClick={() => setSortKey(col.key)}
-                    className={`inline-flex items-center gap-1 transition-colors hover:text-white ${
-                      sortKey === col.key ? "text-brand-300" : "text-slate-400"
+                    className={`inline-flex items-center gap-1 transition-colors hover:text-ink ${
+                      sortKey === col.key ? "text-ink" : "text-ink-400"
                     }`}
                   >
                     {col.label}
-                    {sortKey === col.key && <span className="text-[10px]">▼</span>}
+                    {sortKey === col.key && <span className="text-[9px]">▼</span>}
                   </button>
                 </th>
               ))}
@@ -89,39 +83,32 @@ export function LeaderboardTable({
           <tbody>
             {sortedRows.map((row, i) => {
               const org = orgs[row.model] ?? "";
-              const medal = i === 0 ? "🥇" : i === 1 ? "🥈" : i === 2 ? "🥉" : null;
+              const rank = i + 1;
               return (
                 <tr
                   key={`${row.harness}-${row.model}`}
-                  className="border-b border-white/[0.04] transition-colors hover:bg-white/[0.025]"
+                  className="border-b border-ink-100 transition-colors last:border-0 hover:bg-paper-50"
                 >
-                  <td className="px-4 py-3 text-slate-500">
-                    {medal ?? <span className="font-mono">{i + 1}</span>}
+                  <td className="px-4 py-3 tabular-nums text-ink-400">
+                    {String(rank).padStart(2, "0")}
                   </td>
-                  <td className="px-4 py-3 text-slate-300">{row.harness}</td>
+                  <td className="px-4 py-3 text-ink-600">{row.harness}</td>
                   <td className="px-4 py-3">
-                    <div className="flex items-center gap-2">
-                      <span
-                        className={`h-2 w-2 rounded-full ${
-                          orgDot[org] ?? "bg-slate-500"
-                        }`}
-                      />
-                      <span className="font-medium text-white">{row.model}</span>
-                      {!compact && org && (
-                        <span className="text-xs text-slate-500">{org}</span>
-                      )}
-                    </div>
+                    <span className="font-bold text-ink">{row.model}</span>
+                    {!compact && org && (
+                      <span className="ml-2 text-xs text-ink-400">{org}</span>
+                    )}
                   </td>
                   {numericCols.map((col) => (
                     <td
                       key={col.key}
-                      className={`px-4 py-3 text-right font-mono tabular-nums ${cellClass(
+                      className={`px-4 py-3 text-right tabular-nums ${cellClass(
                         row[col.key],
                         ranks[col.key].best,
                         ranks[col.key].second,
                       )}`}
                     >
-                      {row[col.key].toFixed(1)}%
+                      {row[col.key].toFixed(1)}
                     </td>
                   ))}
                 </tr>

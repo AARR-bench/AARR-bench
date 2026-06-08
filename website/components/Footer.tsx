@@ -1,20 +1,23 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export function Footer() {
   return (
-    <footer className="mt-24 border-t border-white/[0.06]">
+    <footer className="mt-24 border-t border-ink-100 bg-paper-50">
       <div className="container-px py-12">
         <div className="flex flex-col justify-between gap-8 md:flex-row">
           <div className="max-w-sm">
             <div className="flex items-center gap-2.5">
-              <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-brand-500 to-accent-cyan font-mono text-sm font-bold text-white">
-                A
-              </span>
-              <span className="font-mono text-sm font-bold text-white">
-                AARR<span className="text-brand-400">-bench</span>
-              </span>
+              <Image
+                src="/logo.png"
+                alt="AARR"
+                width={28}
+                height={28}
+                className="h-7 w-7"
+              />
+              <span className="text-sm font-bold text-ink">AARR-bench</span>
             </div>
-            <p className="mt-4 text-sm leading-relaxed text-slate-500">
+            <p className="mt-4 text-sm leading-relaxed text-ink-500">
               Act As a Real Researcher — a benchmark series for evaluating LLM
               agents across the research lifecycle.
             </p>
@@ -49,9 +52,9 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col items-start justify-between gap-3 border-t border-white/[0.06] pt-6 text-xs text-slate-600 sm:flex-row sm:items-center">
+        <div className="mt-12 flex flex-col items-start justify-between gap-3 border-t border-ink-100 pt-6 text-xs text-ink-400 sm:flex-row sm:items-center">
           <p>© {new Date().getFullYear()} AARR-bench. Open research benchmark.</p>
-          <p className="font-mono">Act As a Real Researcher</p>
+          <p>Act As a Real Researcher</p>
         </div>
       </div>
     </footer>
@@ -67,7 +70,7 @@ function FooterCol({
 }) {
   return (
     <div>
-      <h3 className="text-xs font-semibold uppercase tracking-wider text-slate-400">
+      <h3 className="text-xs font-bold uppercase tracking-wider text-ink-400">
         {title}
       </h3>
       <ul className="mt-4 space-y-3">
@@ -78,14 +81,14 @@ function FooterCol({
                 href={link.href}
                 target="_blank"
                 rel="noreferrer"
-                className="text-sm text-slate-500 transition-colors hover:text-white"
+                className="text-sm text-ink-500 transition-colors hover:text-ink"
               >
                 {link.label}
               </a>
             ) : (
               <Link
                 href={link.href}
-                className="text-sm text-slate-500 transition-colors hover:text-white"
+                className="text-sm text-ink-500 transition-colors hover:text-ink"
               >
                 {link.label}
               </Link>

@@ -41,31 +41,21 @@ export function TaskBrowser({
       {/* Controls */}
       <div className="card p-5">
         <div className="relative">
-          <svg
-            className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-500"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M21 21l-4.35-4.35M17 11a6 6 0 11-12 0 6 6 0 0112 0z"
-            />
-          </svg>
+          <span className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-ink-400">
+            $
+          </span>
           <input
             type="text"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder="Search tasks by name, summary, or tag…"
-            className="w-full rounded-xl border border-white/[0.08] bg-ink-900/60 py-3 pl-11 pr-4 text-sm text-white placeholder:text-slate-500 outline-none transition-colors focus:border-brand-500/50"
+            placeholder="grep tasks by name, summary, or tag…"
+            className="w-full border border-ink-200 bg-white py-3 pl-9 pr-4 text-sm text-ink placeholder:text-ink-400 outline-none transition-colors focus:border-ink"
           />
         </div>
 
         <div className="mt-5 flex flex-wrap gap-2">
           <FilterChip
-            label="All categories"
+            label="all categories"
             active={!activeCat}
             onClick={() => setActiveCat(null)}
           />
@@ -81,7 +71,7 @@ export function TaskBrowser({
 
         <div className="mt-3 flex flex-wrap gap-2">
           <FilterChip
-            label="All difficulties"
+            label="all difficulties"
             active={!activeDiff}
             onClick={() => setActiveDiff(null)}
           />
@@ -106,9 +96,9 @@ export function TaskBrowser({
 
       {/* Results count */}
       <div className="mt-6 flex items-center justify-between">
-        <p className="text-sm text-slate-500">
-          Showing{" "}
-          <span className="font-semibold text-white">{filtered.length}</span> of{" "}
+        <p className="text-sm text-ink-500">
+          showing{" "}
+          <span className="font-bold text-ink">{filtered.length}</span> of{" "}
           {tasks.length} tasks
         </p>
         {hasFilters && (
@@ -118,34 +108,34 @@ export function TaskBrowser({
               setActiveCat(null);
               setActiveDiff(null);
             }}
-            className="text-sm text-brand-300 transition-colors hover:text-brand-200"
+            className="text-sm text-ink-500 underline underline-offset-4 transition-colors hover:text-ink"
           >
-            Clear filters
+            clear filters
           </button>
         )}
       </div>
 
       {/* Grid */}
       {filtered.length === 0 ? (
-        <div className="card mt-6 p-12 text-center text-slate-500">
+        <div className="card mt-6 p-12 text-center text-ink-400">
           No tasks match your filters.
         </div>
       ) : (
-        <div className="mt-6 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-6 grid gap-px overflow-hidden border border-ink-100 bg-ink-100 sm:grid-cols-2 lg:grid-cols-3">
           {filtered.map((task) => (
             <Link
               key={task.slug}
               href={`/tasks/${task.slug}/`}
-              className="card card-hover group flex flex-col p-6"
+              className="group flex flex-col bg-white p-6 transition-colors hover:bg-paper-50"
             >
               <div className="flex items-center gap-2">
                 <CategoryBadge category={task.category} />
                 <DifficultyBadge difficulty={task.difficulty} />
               </div>
-              <h3 className="mt-3 font-mono text-sm font-semibold text-white group-hover:text-brand-200">
+              <h3 className="mt-3 text-sm font-bold text-ink group-hover:underline">
                 {task.slug}
               </h3>
-              <p className="mt-2 line-clamp-3 flex-1 text-sm leading-relaxed text-slate-500">
+              <p className="mt-2 line-clamp-3 flex-1 text-sm leading-relaxed text-ink-500">
                 {task.summary}
               </p>
               {task.tags.length > 0 && (
@@ -154,7 +144,7 @@ export function TaskBrowser({
                     <Tag key={tag}>{tag}</Tag>
                   ))}
                   {task.tags.length > 3 && (
-                    <span className="text-[11px] text-slate-600">
+                    <span className="text-[11px] text-ink-400">
                       +{task.tags.length - 3}
                     </span>
                   )}
@@ -180,10 +170,10 @@ function FilterChip({
   return (
     <button
       onClick={onClick}
-      className={`rounded-full border px-3 py-1.5 text-xs font-medium capitalize transition-all ${
+      className={`border px-3 py-1.5 text-xs font-medium transition-colors ${
         active
-          ? "border-brand-500/50 bg-brand-500/15 text-brand-200"
-          : "border-white/[0.08] bg-white/[0.02] text-slate-400 hover:border-white/20 hover:text-white"
+          ? "border-ink bg-ink text-white"
+          : "border-ink-200 bg-white text-ink-500 hover:border-ink hover:text-ink"
       }`}
     >
       {label}

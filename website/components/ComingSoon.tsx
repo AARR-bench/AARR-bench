@@ -4,42 +4,36 @@ import type { Bench } from "@/lib/types";
 export function ComingSoon({ bench }: { bench: Bench }) {
   return (
     <section className="relative overflow-hidden">
-      <div className="glow-radial pointer-events-none absolute inset-0 opacity-60" />
-      <div className="grid-bg bg-grid-faint pointer-events-none absolute inset-0" />
+      <div className="grid-bg bg-grid-light pointer-events-none absolute inset-0 opacity-70" />
       <div className="container-px relative py-24 sm:py-32">
         <div className="mx-auto max-w-2xl text-center">
-          <span className="font-mono text-xs font-semibold text-brand-400">
-            STAGE {bench.stage}
+          <span className="text-xs font-bold uppercase tracking-wider text-ink-400">
+            Stage {bench.stage}
           </span>
-          <h1 className="mt-4 font-mono text-6xl font-extrabold tracking-tight text-white sm:text-7xl">
+          <h1 className="mt-4 text-6xl font-bold tracking-tight text-ink sm:text-7xl">
             {bench.code}
           </h1>
-          <p className="mt-3 text-xl font-medium text-slate-300">{bench.name}</p>
+          <p className="mt-3 text-xl font-bold text-ink-600">{bench.name}</p>
 
-          <div className="mx-auto mt-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-4 py-1.5 text-sm text-slate-400">
-            <span className="h-1.5 w-1.5 animate-pulse-slow rounded-full bg-accent-amber" />
+          <div className="mx-auto mt-6 inline-flex items-center gap-2 border border-ink-200 bg-white px-4 py-1.5 text-sm text-ink-500">
+            <span className="h-1.5 w-1.5 rounded-full bg-ink-400" />
             Coming soon
           </div>
 
-          <p className="mx-auto mt-8 max-w-xl text-lg leading-relaxed text-slate-400">
+          <p className="mx-auto mt-8 max-w-xl text-lg leading-relaxed text-ink-600">
             {bench.description}
           </p>
         </div>
 
         <div className="mx-auto mt-14 max-w-3xl">
-          <p className="text-center text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">
+          <p className="text-center text-xs font-bold uppercase tracking-[0.25em] text-ink-400">
             Planned focus areas
           </p>
-          <div className="mt-6 grid gap-4 sm:grid-cols-3">
+          <div className="mt-6 grid gap-px overflow-hidden border border-ink-100 bg-ink-100 sm:grid-cols-3">
             {bench.focusAreas.map((area) => (
-              <div
-                key={area}
-                className="card flex items-center gap-3 p-5"
-              >
-                <span className="h-2 w-2 shrink-0 rounded-full bg-gradient-to-r from-brand-500 to-accent-cyan" />
-                <span className="text-sm font-medium text-slate-200">
-                  {area}
-                </span>
+              <div key={area} className="flex items-center gap-3 bg-white p-5">
+                <span className="h-2 w-2 shrink-0 bg-ink" />
+                <span className="text-sm font-bold text-ink-700">{area}</span>
               </div>
             ))}
           </div>

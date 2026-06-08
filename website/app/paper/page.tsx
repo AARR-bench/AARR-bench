@@ -20,10 +20,10 @@ export default function PaperPage() {
     <div className="container-px py-16">
       <div className="mx-auto max-w-3xl">
         <p className="section-label">Publication</p>
-        <h1 className="mt-3 text-4xl font-bold text-white sm:text-5xl">
+        <h1 className="mt-3 text-4xl font-bold text-ink sm:text-5xl">
           The AARRI-Bench paper
         </h1>
-        <p className="mt-4 text-lg text-slate-400">
+        <p className="mt-4 text-lg text-ink-600">
           AARRI-Bench introduces the first stage of the AARR series, evaluating
           whether LLM agents can act as real research interns.
         </p>
@@ -43,25 +43,23 @@ export default function PaperPage() {
             rel="noreferrer"
             className="btn-ghost"
           >
-            Code & data
+            Code &amp; data
           </a>
         </div>
 
         <div className="card mt-12 p-6">
           <div className="flex items-center justify-between">
-            <h2 className="font-semibold text-white">BibTeX</h2>
-            <span className="font-mono text-xs text-slate-500">
-              arXiv:{bench.arxiv}
-            </span>
+            <h2 className="font-bold text-ink">BibTeX</h2>
+            <span className="text-xs text-ink-400">arXiv:{bench.arxiv}</span>
           </div>
-          <pre className="mt-4 overflow-x-auto rounded-xl border border-white/[0.08] bg-ink-900 p-4 font-mono text-xs leading-relaxed text-slate-300">
+          <pre className="mt-4 overflow-x-auto border border-ink-100 bg-term-bg p-4 text-xs leading-relaxed text-term-text">
             {bibtex}
           </pre>
         </div>
 
         <div className="mt-12">
-          <h2 className="text-xl font-semibold text-white">Abstract</h2>
-          <p className="mt-4 leading-relaxed text-slate-400">
+          <h2 className="text-xl font-bold text-ink">Abstract</h2>
+          <p className="mt-4 leading-relaxed text-ink-600">
             {bench.description} Tasks are containerized via the Harbor framework
             and run in isolated Docker environments, with verifiers that score
             each agent run against a hidden reference. Rather than testing raw

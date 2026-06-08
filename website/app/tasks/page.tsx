@@ -17,10 +17,10 @@ export default function TasksPage() {
     <div className="container-px py-16">
       <div className="max-w-2xl">
         <p className="section-label">AARRI-Bench</p>
-        <h1 className="mt-3 text-4xl font-bold text-white sm:text-5xl">
+        <h1 className="mt-3 text-4xl font-bold text-ink sm:text-5xl">
           Task Registry
         </h1>
-        <p className="mt-4 text-lg text-slate-400">
+        <p className="mt-4 text-lg text-ink-600">
           {tasks.length} containerized tasks targeting the cognitive gaps between
           AI agents and human researchers. Each task gives the agent only an
           instruction and its environment.

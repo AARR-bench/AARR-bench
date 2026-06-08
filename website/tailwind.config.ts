@@ -10,76 +10,72 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Core ink / surface palette (deep, near-black with warmth)
+        // Monochrome paper palette (conductor.build inspired)
+        paper: {
+          DEFAULT: "#ffffff",
+          50: "#fafafa",
+          100: "#f5f5f4",
+          200: "#ececea",
+        },
         ink: {
-          950: "#07080c",
-          900: "#0b0d14",
-          850: "#0f121b",
-          800: "#141826",
-          700: "#1c2133",
-          600: "#272d44",
-          500: "#3a4259",
+          DEFAULT: "#0a0a0a",
+          900: "#111111",
+          800: "#1c1c1c",
+          700: "#2a2a2a",
+          600: "#404040",
+          500: "#6b6b6b",
+          400: "#8a8a8a",
+          300: "#b5b5b5",
+          200: "#d4d4d4",
+          100: "#e7e7e5",
         },
-        // Accent: a research-y electric indigo -> cyan
-        brand: {
-          50: "#eef2ff",
-          100: "#e0e7ff",
-          200: "#c7d2fe",
-          300: "#a5b4fc",
-          400: "#818cf8",
-          500: "#6366f1",
-          600: "#4f46e5",
-          700: "#4338ca",
-          800: "#3730a3",
-          900: "#312e81",
-        },
-        accent: {
-          cyan: "#22d3ee",
-          violet: "#a855f7",
-          amber: "#f59e0b",
-          emerald: "#34d399",
-          rose: "#fb7185",
+        // Terminal surface (dark)
+        term: {
+          bg: "#0c0c0d",
+          bar: "#1a1a1c",
+          text: "#e8e8e8",
+          green: "#3ecf8e",
+          dim: "#8a8a8a",
         },
       },
       fontFamily: {
-        sans: ["var(--font-sans)", "system-ui", "sans-serif"],
-        mono: ["var(--font-mono)", "ui-monospace", "monospace"],
+        // Courier New as the primary type, per request
+        sans: ['"Courier New"', "Courier", "ui-monospace", "monospace"],
+        mono: ['"Courier New"', "Courier", "ui-monospace", "monospace"],
+        ui: ["Inter", "system-ui", "-apple-system", "sans-serif"],
       },
       maxWidth: {
-        container: "1200px",
+        container: "1180px",
       },
       keyframes: {
         "fade-up": {
-          "0%": { opacity: "0", transform: "translateY(12px)" },
+          "0%": { opacity: "0", transform: "translateY(10px)" },
           "100%": { opacity: "1", transform: "translateY(0)" },
         },
         "fade-in": {
           "0%": { opacity: "0" },
           "100%": { opacity: "1" },
         },
-        shimmer: {
-          "0%": { backgroundPosition: "200% 0" },
-          "100%": { backgroundPosition: "-200% 0" },
+        blink: {
+          "0%, 49%": { opacity: "1" },
+          "50%, 100%": { opacity: "0" },
         },
-        "pulse-slow": {
-          "0%, 100%": { opacity: "0.4" },
-          "50%": { opacity: "0.8" },
-        },
-        float: {
-          "0%, 100%": { transform: "translateY(0)" },
-          "50%": { transform: "translateY(-8px)" },
+        marquee: {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(-50%)" },
         },
       },
       animation: {
         "fade-up": "fade-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) both",
         "fade-in": "fade-in 0.8s ease both",
-        shimmer: "shimmer 6s linear infinite",
-        "pulse-slow": "pulse-slow 5s ease-in-out infinite",
-        float: "float 6s ease-in-out infinite",
+        blink: "blink 1s steps(1) infinite",
+        marquee: "marquee 30s linear infinite",
       },
       backgroundImage: {
-        "grid-faint":
-          "linear-gradient(to right, rgba(255,255,255,0.04) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.04) 1px, transparent 1px)",
+        "grid-light":
+          "linear-gradient(to right, rgba(0,0,0,0.045) 1px, transparent 1px), linear-gradient(to bottom, rgba(0,0,0,0.045) 1px, transparent 1px)",
+        "dots-light":
+          "radial-gradient(rgba(0,0,0,0.08) 1px, transparent 1px)",
       },
     },
   },

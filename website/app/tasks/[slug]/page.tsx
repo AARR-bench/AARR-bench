@@ -36,7 +36,7 @@ export default async function TaskDetailPage({
     <div className="container-px py-12">
       <Link
         href="/tasks/"
-        className="inline-flex items-center gap-1.5 text-sm text-slate-500 transition-colors hover:text-white"
+        className="inline-flex items-center gap-1.5 text-sm text-ink-500 transition-colors hover:text-ink"
       >
         ← All tasks
       </Link>
@@ -49,36 +49,36 @@ export default async function TaskDetailPage({
             <DifficultyBadge difficulty={task.difficulty} />
           </div>
 
-          <h1 className="mt-4 break-words font-mono text-3xl font-bold text-white sm:text-4xl">
+          <h1 className="mt-4 break-words text-3xl font-bold text-ink sm:text-4xl">
             {task.slug}
           </h1>
-          <p className="mt-4 text-lg leading-relaxed text-slate-300">
+          <p className="mt-4 text-lg leading-relaxed text-ink-700">
             {task.summary}
           </p>
 
           {task.motivation && (
             <div className="mt-8">
-              <h2 className="text-sm font-semibold uppercase tracking-wider text-brand-300">
+              <h2 className="text-xs font-bold uppercase tracking-wider text-ink-400">
                 Why this matters
               </h2>
-              <p className="mt-3 leading-relaxed text-slate-400">
+              <p className="mt-3 leading-relaxed text-ink-600">
                 {task.motivation}
               </p>
             </div>
           )}
 
           <div className="mt-10">
-            <h2 className="text-sm font-semibold uppercase tracking-wider text-brand-300">
+            <h2 className="text-xs font-bold uppercase tracking-wider text-ink-400">
               Agent instruction
             </h2>
             <div className="card mt-3 p-6">
               {task.instruction ? (
                 <Markdown>{task.instruction}</Markdown>
               ) : (
-                <p className="text-slate-500">No instruction provided.</p>
+                <p className="text-ink-400">No instruction provided.</p>
               )}
             </div>
-            <p className="mt-3 text-xs text-slate-600">
+            <p className="mt-3 text-xs text-ink-400">
               The agent sees only this instruction and the files placed in its
               container. Reference solutions and verifier tests are intentionally
               hidden.
@@ -89,21 +89,23 @@ export default async function TaskDetailPage({
         {/* Sidebar */}
         <aside className="space-y-4 lg:sticky lg:top-24 lg:self-start">
           <div className="card p-6">
-            <h3 className="text-sm font-semibold text-white">Details</h3>
+            <h3 className="text-xs font-bold uppercase tracking-wider text-ink-400">
+              Details
+            </h3>
             <dl className="mt-4 space-y-3 text-sm">
               <Row label="Benchmark" value="AARRI" />
               <Row label="Category" value={task.category} capitalize />
               <Row label="Difficulty" value={task.difficulty} capitalize />
               {task.author && <Row label="Author" value={task.author} />}
-              {task.taskId && (
-                <Row label="Task ID" value={task.taskId} mono />
-              )}
+              {task.taskId && <Row label="Task ID" value={task.taskId} />}
             </dl>
           </div>
 
           {task.tags.length > 0 && (
             <div className="card p-6">
-              <h3 className="text-sm font-semibold text-white">Tags</h3>
+              <h3 className="text-xs font-bold uppercase tracking-wider text-ink-400">
+                Tags
+              </h3>
               <div className="mt-3 flex flex-wrap gap-1.5">
                 {task.tags.map((tag) => (
                   <Tag key={tag}>{tag}</Tag>
@@ -113,20 +115,18 @@ export default async function TaskDetailPage({
           )}
 
           <div className="card p-6">
-            <h3 className="text-sm font-semibold text-white">Environment</h3>
+            <h3 className="text-xs font-bold uppercase tracking-wider text-ink-400">
+              Environment
+            </h3>
             <dl className="mt-4 space-y-3 text-sm">
               {task.env.cpus != null && (
-                <Row label="CPUs" value={String(task.env.cpus)} mono />
+                <Row label="CPUs" value={String(task.env.cpus)} />
               )}
               {task.env.memoryMb != null && (
-                <Row
-                  label="Memory"
-                  value={`${task.env.memoryMb} MB`}
-                  mono
-                />
+                <Row label="Memory" value={`${task.env.memoryMb} MB`} />
               )}
               {task.env.gpus != null && (
-                <Row label="GPUs" value={String(task.env.gpus)} mono />
+                <Row label="GPUs" value={String(task.env.gpus)} />
               )}
               {task.env.allowInternet != null && (
                 <Row
@@ -154,21 +154,17 @@ export default async function TaskDetailPage({
 function Row({
   label,
   value,
-  mono,
   capitalize,
 }: {
   label: string;
   value: string;
-  mono?: boolean;
   capitalize?: boolean;
 }) {
   return (
     <div className="flex items-center justify-between gap-4">
-      <dt className="text-slate-500">{label}</dt>
+      <dt className="text-ink-400">{label}</dt>
       <dd
-        className={`text-right text-slate-200 ${mono ? "font-mono" : ""} ${
-          capitalize ? "capitalize" : ""
-        }`}
+        className={`text-right text-ink-800 ${capitalize ? "capitalize" : ""}`}
       >
         {value}
       </dd>
