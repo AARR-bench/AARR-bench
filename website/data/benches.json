@@ -1,0 +1,57 @@
+{
+  "series": {
+    "name": "AARR",
+    "full": "Act As a Real Researcher",
+    "tagline": "Evaluating how well LLM agents close the gap with human researchers across the full research lifecycle."
+  },
+  "benches": [
+    {
+      "id": "aarri",
+      "stage": 1,
+      "code": "AARRI",
+      "name": "Act As a Real Research Intern",
+      "status": "active",
+      "short": "Entry-level research tasks done with diligence and sound methodology.",
+      "description": "AARRI-Bench is the first release in the AARR series. Rather than testing whether an agent can simply execute code, its tasks target the cognitive gaps that still separate frontier agents from human researchers — context sensitivity, independent judgment, knowing when to quit, and collaboration.",
+      "arxiv": "2606.07462",
+      "arxivUrl": "https://arxiv.org/abs/2606.07462",
+      "repoUrl": "https://github.com/AARR-bench/AARRI-bench",
+      "datasetUrl": "https://hub.harborframework.com/datasets/aarr/aarri-bench/latest",
+      "focusAreas": [
+        "Context sensitivity",
+        "Independent judgment",
+        "Knowing when to quit",
+        "Collaboration"
+      ]
+    },
+    {
+      "id": "aarra",
+      "stage": 2,
+      "code": "AARRA",
+      "name": "Act As a Real Research Assistant",
+      "status": "coming-soon",
+      "short": "More independent contributions, critical evaluation, MCP and agent skills, LLM-as-judge, crowdsourced data.",
+      "description": "AARRA-Bench raises the bar from execution to contribution: agents are expected to evaluate work critically, leverage MCP and agent skills, and operate with greater independence. Details are being finalized.",
+      "focusAreas": [
+        "Critical evaluation",
+        "MCP & agent skills",
+        "LLM-as-judge",
+        "Crowdsourced data"
+      ]
+    },
+    {
+      "id": "aarrs",
+      "stage": 3,
+      "code": "AARRS",
+      "name": "Act As a Real Research Scientist",
+      "status": "coming-soon",
+      "short": "Fully independent research and scientific discovery with minimal supervision.",
+      "description": "AARRS-Bench targets the frontier: fully independent research and scientific discovery with minimal supervision. This stage is in early planning.",
+      "focusAreas": [
+        "Independent research",
+        "Scientific discovery",
+        "Minimal supervision"
+      ]
+    }
+  ]
+}

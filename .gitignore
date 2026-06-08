@@ -1,0 +1,31 @@
+# Dependencies
+node_modules/
+website/node_modules/
+
+# Next.js
+website/.next/
+website/out/
+website/.vercel/
+
+# Build / cache
+*.tsbuildinfo
+website/next-env.d.ts
+
+# Logs
+*.log
+npm-debug.log*
+
+# Env
+.env
+.env.local
+.env*.local
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Existing standalone repos (tracked in their own GitHub repos).
+# The website is self-contained via website/data/tasks.generated.json.
+/AARRI-bench/
+/.github/
+/.github-private/

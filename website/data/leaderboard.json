@@ -1,0 +1,37 @@
+{
+  "metric": "Classic 0/1 reward",
+  "note": "Agent Overall Performance by Task Category. Best results are bold, second-best are underlined.",
+  "categories": [
+    { "key": "context", "label": "Context" },
+    { "key": "mindset", "label": "Mindset" },
+    { "key": "interaction", "label": "Interaction" },
+    { "key": "handsOn", "label": "Hands-on" }
+  ],
+  "orgs": {
+    "GPT-5.3 Codex": "OpenAI",
+    "Kimi-K2.6": "Moonshot AI",
+    "Qwen-3.6-Plus": "Alibaba",
+    "Claude-Opus-4.7": "Anthropic",
+    "Claude-Sonnet-4.6": "Anthropic",
+    "MiniMax-M2.7": "MiniMax",
+    "DeepSeek-V4-Flash": "DeepSeek"
+  },
+  "rows": [
+    { "harness": "Claude Code", "model": "GPT-5.3 Codex", "context": 47.1, "mindset": 53.8, "interaction": 65.0, "handsOn": 50.0, "overall": 53.1 },
+    { "harness": "Claude Code", "model": "Kimi-K2.6", "context": 45.5, "mindset": 61.5, "interaction": 65.0, "handsOn": 35.7, "overall": 51.3 },
+    { "harness": "Claude Code", "model": "Qwen-3.6-Plus", "context": 50.0, "mindset": 69.2, "interaction": 63.2, "handsOn": 50.0, "overall": 56.3 },
+    { "harness": "Claude Code", "model": "Claude-Opus-4.7", "context": 55.9, "mindset": 76.9, "interaction": 66.7, "handsOn": 57.1, "overall": 62.2 },
+    { "harness": "Claude Code", "model": "Claude-Sonnet-4.6", "context": 50.0, "mindset": 61.5, "interaction": 61.9, "handsOn": 35.7, "overall": 52.4 },
+    { "harness": "Claude Code", "model": "MiniMax-M2.7", "context": 47.1, "mindset": 69.2, "interaction": 66.7, "handsOn": 50.0, "overall": 56.1 },
+    { "harness": "Hermes Agent", "model": "Claude-Opus-4.7", "context": 52.9, "mindset": 76.9, "interaction": 71.4, "handsOn": 57.1, "overall": 64.6 },
+    { "harness": "Hermes Agent", "model": "Claude-Sonnet-4.6", "context": 47.1, "mindset": 53.8, "interaction": 66.7, "handsOn": 50.0, "overall": 54.4 },
+    { "harness": "Hermes Agent", "model": "MiniMax-M2.7", "context": 44.1, "mindset": 69.2, "interaction": 61.9, "handsOn": 57.1, "overall": 58.1 },
+    { "harness": "Hermes Agent", "model": "DeepSeek-V4-Flash", "context": 55.9, "mindset": 46.2, "interaction": 76.2, "handsOn": 50.0, "overall": 57.1 },
+    { "harness": "Hermes Agent", "model": "Qwen-3.6-Plus", "context": 50.0, "mindset": 69.2, "interaction": 61.9, "handsOn": 64.3, "overall": 61.4 },
+    { "harness": "Mini-SWE-Agent", "model": "Claude-Opus-4.7", "context": 64.7, "mindset": 76.9, "interaction": 76.2, "handsOn": 57.1, "overall": 68.3 },
+    { "harness": "Mini-SWE-Agent", "model": "DeepSeek-V4-Flash", "context": 50.0, "mindset": 76.9, "interaction": 75.0, "handsOn": 50.0, "overall": 60.5 },
+    { "harness": "Mini-SWE-Agent", "model": "Kimi-K2.6", "context": 59.4, "mindset": 61.5, "interaction": 52.6, "handsOn": 50.0, "overall": 56.4 },
+    { "harness": "Mini-SWE-Agent", "model": "MiniMax-M2.7", "context": 55.9, "mindset": 69.2, "interaction": 60.0, "handsOn": 42.9, "overall": 56.8 },
+    { "harness": "Mini-SWE-Agent", "model": "Qwen-3.6-Plus", "context": 44.1, "mindset": 76.9, "interaction": 71.4, "handsOn": 64.3, "overall": 59.8 }
+  ]
+}
