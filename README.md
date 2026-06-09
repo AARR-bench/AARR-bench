@@ -3,6 +3,8 @@
 <a href="https://aarr-bench.com/">
   <img src="https://img.shields.io/badge/Project-AARR Bench-e4bd78" alt="AARR Bench">
 </a>
+<a href="https://join.slack.com/t/aarr-series/shared_invite/zt-40dp5md9d-btqN4Gmgsi9CtHwtLinHOg"><img src="https://img.shields.io/badge/Slack-Join%20Chat-4A154B?logo=slack&logoColor=white" alt="Join our Slack"></a>
+<a href="./wechat_group_qr.jpg" target="_blank"><img src="https://img.shields.io/badge/WeChat-Group%20QR--Code-07C160?logo=wechat&logoColor=white" alt="Join our WeChat Group"></a>
 
 **Act As a Real Researcher** — a benchmark series evaluating how well LLM agents
 close the gap with human researchers across the research lifecycle.
