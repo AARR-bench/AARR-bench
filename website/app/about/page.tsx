@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "About & Quickstart",
@@ -102,7 +103,101 @@ harbor run -p ./tasks -m "<model>" -a "<agent>"`}</CodeBlock>
             </p>
           </Link>
         </div>
+
+        {/* Contact Us */}
+        <div id="contact" className="mt-14">
+          <h2 className="text-2xl font-bold text-ink">Contact Us</h2>
+          <p className="mt-3 text-ink-600">
+            Questions, feedback, or interested in contributing? Reach out to the
+            project organizer.
+          </p>
+
+          <div className="card mt-6 p-6">
+            <div className="flex flex-col gap-6 sm:flex-row sm:items-start sm:justify-between">
+              {/* Contact details */}
+              <div className="min-w-0">
+                <p className="text-lg font-bold text-ink">Jiayu Wang</p>
+                <p className="mt-0.5 text-sm text-ink-500">
+                  Project launcher &amp; first author
+                </p>
+
+                <dl className="mt-5 space-y-2.5 text-sm">
+                  <div className="flex gap-3">
+                    <dt className="w-20 shrink-0 font-bold text-ink-400">
+                      Homepage
+                    </dt>
+                    <dd className="min-w-0">
+                      <a
+                        href="https://jiayuuwang.github.io/"
+                        target="_blank"
+                        rel="noreferrer"
+                        className="break-all text-ink underline underline-offset-4 hover:text-ink-600"
+                      >
+                        jiayuuwang.github.io
+                      </a>
+                    </dd>
+                  </div>
+                  <div className="flex gap-3">
+                    <dt className="w-20 shrink-0 font-bold text-ink-400">Email</dt>
+                    <dd className="min-w-0">
+                      <a
+                        href="mailto:jiayuw794@gmail.com"
+                        className="break-all text-ink underline underline-offset-4 hover:text-ink-600"
+                      >
+                        jiayuw794@gmail.com
+                      </a>
+                    </dd>
+                  </div>
+                  <div className="flex gap-3">
+                    <dt className="w-20 shrink-0 font-bold text-ink-400">
+                      Slack
+                    </dt>
+                    <dd className="min-w-0">
+                      <a
+                        href="https://join.slack.com/t/aarr-series/shared_invite/zt-40dp5md9d-btqN4Gmgsi9CtHwtLinHOg"
+                        target="_blank"
+                        rel="noreferrer"
+                        className="break-all text-ink underline underline-offset-4 hover:text-ink-600"
+                      >
+                        Join the AARR Slack
+                      </a>
+                    </dd>
+                  </div>
+                  <div className="flex gap-3">
+                    <dt className="w-20 shrink-0 font-bold text-ink-400">
+                      WeChat
+                    </dt>
+                    <dd className="min-w-0 text-ink-700">jiayuw1023</dd>
+                  </div>
+                </dl>
+              </div>
+
+              {/* QR codes */}
+              <div className="flex gap-5">
+                <QrCode src="/wechat_qr.jpg" label="WeChat" />
+                <QrCode src="/wechat_group_qr.jpg" label="WeChat group" />
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
+    </div>
+  );
+}
+
+function QrCode({ src, label }: { src: string; label: string }) {
+  return (
+    <div className="text-center">
+      <div className="border border-ink-100 bg-white p-1.5">
+        <Image
+          src={src}
+          alt={`${label} QR code`}
+          width={112}
+          height={112}
+          className="h-28 w-28 object-contain"
+        />
+      </div>
+      <p className="mt-2 text-xs text-ink-500">{label}</p>
     </div>
   );
 }

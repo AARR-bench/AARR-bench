@@ -1,5 +1,9 @@
 # AARR-bench
 
+<a href="https://aarr-bench.com/">
+  <img src="https://img.shields.io/badge/Project-AARR Bench-e4bd78" alt="AARR Bench">
+</a>
+
 **Act As a Real Researcher** — a benchmark series evaluating how well LLM agents
 close the gap with human researchers across the research lifecycle.
 
