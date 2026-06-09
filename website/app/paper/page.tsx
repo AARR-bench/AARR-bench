@@ -6,12 +6,14 @@ export const metadata: Metadata = {
   description: "Read the AARRI-Bench paper and cite our work.",
 };
 
-const bibtex = `@article{aarri2026,
-  title   = {AARRI-Bench: Act As a Real Research Intern},
-  author  = {AARR-bench Team},
-  journal = {arXiv preprint arXiv:2606.07462},
-  year    = {2026},
-  url     = {https://arxiv.org/abs/2606.07462}
+const bibtex = `@misc{wang2026actrealresearchersuite,
+      title={Act As a Real Researcher: A Suite of Benchmarks Evaluating Frontier LLMs and Agentic Harnesses in Research Lifecycle}, 
+      author={Jiayu Wang and Weijiang Lv and Bowen Fu and Jing Fu and Jiayi Song and Lingyu Zhang and Lanxuan Xue and Luodi Chen and Zepeng Xin and Kaiyu Li and Xiangyong Cao},
+      year={2026},
+      eprint={2606.07462},
+      archivePrefix={arXiv},
+      primaryClass={cs.AI},
+      url={https://arxiv.org/abs/2606.07462}, 
 }`;
 
 export default function PaperPage() {
