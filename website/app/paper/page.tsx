@@ -6,15 +6,12 @@ export const metadata: Metadata = {
   description: "Read the AARRI-Bench paper and cite our work.",
 };
 
-const bibtex = `@misc{wang2026actrealresearchersuite,
-      title={Act As a Real Researcher: A Suite of Benchmarks Evaluating Frontier LLMs and Agentic Harnesses in Research Lifecycle}, 
-      author={Jiayu Wang and Weijiang Lv and Bowen Fu and Jing Fu and Jiayi Song and Lingyu Zhang and Lanxuan Xue and Luodi Chen and Zepeng Xin and Kaiyu Li and Xiangyong Cao},
-      year={2026},
-      eprint={2606.07462},
-      archivePrefix={arXiv},
-      primaryClass={cs.AI},
-      url={https://arxiv.org/abs/2606.07462}, 
-}`;
+const bibtex = `@article{wang2026act,
+  title={Act As a Real Researcher: A Suite of Benchmarks Evaluating Frontier LLMs and Agentic Harnesses in Research Lifecycle},
+  author={Wang, Jiayu and Lv, Weijiang and Fu, Bowen and Fu, Jing and Song, Jiayi and Zhang, Lingyu and Xue, Lanxuan and Chen, Luodi and Xin, Zepeng and Li, Kaiyu and others},
+  journal={arXiv preprint arXiv:2606.07462},
+  year={2026}
+`;
 
 export default function PaperPage() {
   const bench = getBench("aarri")!;
